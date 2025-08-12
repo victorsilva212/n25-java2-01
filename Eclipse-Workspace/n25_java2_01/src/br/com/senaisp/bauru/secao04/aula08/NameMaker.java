@@ -11,6 +11,10 @@ public class NameMaker {
 		//Mostrar o nome completo ao término 
 		//pode usar o Scanner ou JoptionPane para solicitar ao usuário
 	String nome = JOptionPane.showInputDialog("Digite seu nome: ");
+	String nomeMeio = JOptionPane.showInputDialog("Agora nome do meio: ");
+	String sobrenome = JOptionPane.showInputDialog("Agora sobrenome: ");
+	String nomeCompleto = nome + " " + nomeMeio + " " + sobrenome;
+	JOptionPane.showMessageDialog(null, "Seu nome completo é " + nomeCompleto);
 	}
 
 }
