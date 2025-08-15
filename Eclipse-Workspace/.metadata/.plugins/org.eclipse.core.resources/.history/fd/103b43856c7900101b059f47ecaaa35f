@@ -1,0 +1,15 @@
+package br.com.senaisp.bauru.secao06.aula12;
+
+import java.util.Scanner;
+
+public class TikTakToeTest {
+
+	public static void main(String[] args) {
+		TikTakToe tc = new TikTakToe();
+		Scanner sc = new Scanner(System.in);
+		tc.iniciarTabuleiro();
+		tc.mostrarTabuleiro();
+		
+	}
+
+}
