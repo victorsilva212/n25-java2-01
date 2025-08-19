@@ -8,6 +8,10 @@ public class TikTakToeTest {
 		TikTakToe tc = new TikTakToe();
 		Scanner sc = new Scanner(System.in);
 		tc.iniciarTabuleiro();
+		//Pedindo o nome do Player
+		System.out.println("Digite seu nome: ");
+		tc.setNomePlayer(sc.nextLine());
+		//----------
 		do {
 			tc.mostrarTabuleiro();
 			System.out.println("Digite a casa desejada (1-9): ");
@@ -17,6 +21,7 @@ public class TikTakToeTest {
 			}
 		} while(!tc.ehFimDeJogo());
 		tc.mostrarTabuleiro();
+		System.out.println("O vencedor foi: " + tc.getVencedor());
 		sc.close();
 	}
 

@@ -1,0 +1,14 @@
+package br.com.senaisp.bauru.secao08.aula13;
+
+public class BaralhoTest {
+
+	public static void main(String[] args) {
+		//Criando o Baralho
+		Baralho br = new Baralho();
+		Carta ct = null;
+		do {
+			
+		}while(ct!=null);
+	}
+
+}

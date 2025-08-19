@@ -19,6 +19,10 @@ public class TikTakToe {
 		}
 	}
 
+	public String getVencedor() {
+		return vencedor;
+	}
+
 	public String getNomePlayer() {
 		return nomePlayer;
 	}
@@ -64,10 +68,33 @@ public class TikTakToe {
 	public void lancarJogada(int id) {
 		tab[id] = 'O';
 		atualizarPosLivre(id);
+		vencedor = "Sem Vencedor";
+		if (ehFimDeJogo())
+			vencedor = "Empate";
+		if (posDisp.length>0 && ehFimDeJogo()) vencedor = getNomePlayer();
 		if (posDisp.length > 0 && !ehFimDeJogo()) {
 			int idx = rnd.nextInt(posDisp.length);
 			tab[posDisp[idx]] = 'X';
 			atualizarPosLivre(posDisp[idx]);
+			if (posDisp.length>0 && ehFimDeJogo()) vencedor = "Computador";
+			if (posDisp.length==0 && ehFimDeJogo()) { vencedor = "Empate";
+			// Verificar se ocorreu trinca do computador
+			boolean teste = tab[0]=='X' && tab[1]=='X' && tab[2]=='X';
+			teste = teste || tab[3]=='X' && tab[4]=='X' && tab[5]=='X';
+			teste = teste || tab[6]=='X' && tab[7]=='X' && tab[8]=='X';
+			//Verificando as colunas
+			teste = teste || tab[0]=='X' && tab[3]=='X' && tab[6]=='X';
+			teste = teste || tab[1]=='X' && tab[4]=='X' && tab[7]=='X';
+			teste = teste || tab[2]=='X' && tab[5]=='X' && tab[8]=='X';
+			//Verificando as diagonais
+			teste = teste || tab[0]=='X' && tab[4]=='X' && tab[8]=='X';
+			teste = teste || tab[2]=='X' && tab[4]=='X' && tab[6]=='X';
+			//Se teste for verdadeiro, então computador ganhou
+			if (teste)
+				vencedor = "Computador";
+			
+			}
+			
 		}
 	}
 
