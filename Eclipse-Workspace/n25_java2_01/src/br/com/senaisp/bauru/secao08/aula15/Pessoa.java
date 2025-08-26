@@ -14,7 +14,7 @@ public abstract class Pessoa {
 	}
 	//Sobrecarga de Constructor
 	public Pessoa(String nom, String doc, String ende, String dtNas) 
-			throws Exception {
+			throws DocumentoException, EnderecoException {
 		carregarId();
 		setNome(nom);
 		setDocumento(doc);
@@ -39,11 +39,11 @@ public abstract class Pessoa {
 	public String getDocumento() {
 		return documento;
 	}
-	public void setDocumento(String documento) throws Exception {
+	public void setDocumento(String documento) throws DocumentoException {
 		if (isDocumentoValido(documento)) {
 			this.documento = documento;
 		} else {
-			throw new Exception("Documento Inválido de acordo com o tipo de pessoa");
+			throw new DocumentoException("Documento Inválido de acordo com o tipo de pessoa");
 		}
 	}
 	
@@ -51,8 +51,12 @@ public abstract class Pessoa {
 	public String getEndereço() {
 		return endereço;
 	}
-	public void setEndereço(String endereço) {
-		this.endereço = endereço;
+	public void setEndereço(String endereço) throws EnderecoException {
+		if(!endereço.isEmpty()) {
+			this.endereço = endereço;
+		} else {
+		throw new EnderecoException("Endereço deve ser preenchido!");
+	    }
 	}
 	public String getDataNascimento() {
 		return dataNascimento;
